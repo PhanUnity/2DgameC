@@ -1,6 +1,4 @@
 using Godot;
-using System;
-
 public partial class Player : Area2D
 {
     // Don't forget to rebuild the project so the editor knows about the new signal.
@@ -98,7 +96,7 @@ public partial class Player : Area2D
     private void OnBodyEntered(Node2D body)
     {
         Hide(); // Player disappears after being hit.
-        EmitSignal(SignalName.Hit);
+        EmitSignal(global::Player.SignalName.Hit);
         // Must be deferred as we can't change physics properties on a physics callback.
         GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
     }
